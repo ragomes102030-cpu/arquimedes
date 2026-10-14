@@ -40,13 +40,13 @@ export const Agente: React.FC = () => {
             <div className="dim"><span>Agente de campo</span></div>
             <h2 style={{ marginTop: 22 }}>Seu agente, no bolso, dentro da obra.</h2>
             <p className="sub" style={{ marginTop: 16 }}>
-              O mesmo agente que roda no desktop atende no Telegram. Nao e um bot diferente
-              que voce configura de novo: e o mesmo, com os mesmos acessos e as mesmas
-              skills, respondendo de onde voce estiver.
+              O mesmo agente que roda no desktop atende no Telegram. Não é um bot diferente
+              que você configura de novo: é o mesmo, com os mesmos acessos e as mesmas
+              skills, respondendo de onde você estiver.
             </p>
             <div className="agente-bullets">
-              <span>Consulta medicao e cronograma</span>
-              <span>Previsao de chuva para concretagem</span>
+              <span>Consulta medição e cronograma</span>
+              <span>Previsão de chuva para concretagem</span>
               <span>Recebe e envia arquivo no chat</span>
             </div>
             <div className="cta-row" style={{ marginTop: 28 }}>
