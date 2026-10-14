@@ -4,6 +4,7 @@ import './styles.css'
 import { Header, useTema } from './components/Chrome'
 import { Hero, Agentes, Recursos, Fluxo, Dominios, Perguntas, Final, Footer } from './components/Secoes'
 import { Contato } from './components/Contato'
+import { Ecossistema, Ciclo, DuvidasEcossistema } from './components/Ecossistema'
 
 function App() {
   const { tema, alternar } = useTema()
@@ -12,10 +13,14 @@ function App() {
       <Header tema={tema} onAlternar={alternar} />
       <main>
         <Hero />
+        {/* o ecossistema vem primeiro: é o que o produto é */}
+        <Ecossistema />
+        <Ciclo />
         <Agentes />
         <Recursos />
         <Fluxo />
         <Dominios />
+        <DuvidasEcossistema />
         <Perguntas />
         <Contato />
         <Final />

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Wordmark } from './Marca'
-import { baixar } from '../data/contato'
+import { baixar, online } from '../data/contato'
 
 export const NAV: { label: string; href: string }[] = [
+  { label: 'Ecossistema', href: '#ecossistema' },
   { label: 'Agentes', href: '#agentes' },
   { label: 'Recursos', href: '#recursos' },
-  { label: 'Como funciona', href: '#fluxo' },
   { label: 'Perguntas', href: '#perguntas' },
 ]
 
@@ -55,7 +55,7 @@ export const Header: React.FC<{ tema: string; onAlternar: () => void }> = ({ tem
           </nav>
           <div className="hdr-actions">
             <a className="btn btn-ghost" href="#perguntas">Dúvidas</a>
-            <a className="btn btn-primary" href={baixar.url} target="_blank" rel="noreferrer">Baixar</a>
+            <a className="btn btn-primary" href={online.url} target="_blank" rel="noreferrer">Abrir plataforma</a>
             <button
               className="icon-btn"
               onClick={onAlternar}

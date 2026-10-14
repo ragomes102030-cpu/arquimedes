@@ -4,7 +4,8 @@ import { Prancheta } from './Chrome'
 import { Marca, Alavanca } from './Marca'
 import { Glifo } from './Glifos'
 import { Contato } from './Contato'
-import { baixar } from '../data/contato'
+import { Ecossistema, Ciclo, DuvidasEcossistema } from './Ecossistema'
+import { baixar, online } from '../data/contato'
 
 function useRevelar() {
   const ref = useRef<HTMLElement>(null)
@@ -25,23 +26,26 @@ export const Hero: React.FC = () => (
   <section className="hero" id="topo">
     <div className="wrap hero-grid">
       <div>
-        <span className="kicker"><s />Planejamento e execução de obras</span>
+        <span className="kicker"><s />Planejamento e controle de obras</span>
         <h1>
-          Da planilha de quantitativo à <em>medição do canteiro</em>, com agentes de IA.
+          Do orçamento no desktop à <em>medição no canteiro</em>, sem redigitar.
         </h1>
         <p className="lede">
-          O Arquimedes lê o seu projeto, estrutura a EAP, orça com SINAPI e SEINFRA,
-          monta o cronograma com caminho crítico e acompanha o avanço até o fim da obra.
-          Roda no seu computador, em português.
+          O Arquimedes é um ecossistema: um aplicativo desktop com 12 agentes especializados
+          e uma plataforma online onde a obra vive. Os dois conversam por servidores de
+          domínio — o escopo que você estrutura no desktop chega na plataforma pronto para
+          a equipe acompanhar.
         </p>
         <div className="cta-row">
-          <a className="btn btn-primary btn-lg" href={baixar.url} target="_blank" rel="noreferrer">{baixar.rotulo}</a>
-          <a className="btn btn-ghost btn-lg" href="#contato">Falar com o engenheiro</a>
+          <a className="btn btn-primary btn-lg" href={online.url} target="_blank" rel="noreferrer">
+            Abrir a plataforma online
+          </a>
+          <a className="btn btn-ghost btn-lg" href="#ecossistema">Ver como funciona</a>
         </div>
         <div className="trust">
-          <span>Windows · macOS · Linux</span>
-          <span>Dados no seu computador</span>
-          <span>12 agentes especializados</span>
+          <span>Plataforma online no ar</span>
+          <span>Desktop em preparação</span>
+          <span>42 comandos de domínio ativos</span>
         </div>
       </div>
       <Prancheta />
@@ -58,9 +62,10 @@ export const Agentes: React.FC = () => {
           <div className="dim"><span>Agentes</span></div>
           <h2 style={{ marginTop: 22 }}>Cada agente responde por uma parte da obra.</h2>
           <p>
-            Não são assistentes genéricos com nome de pessoa. Cada um domina uma disciplina,
-            conhece a norma aplicável e entrega um artefato concreto — planilha, memorial,
-            cronograma ou laudo.
+            Os 12 agentes vivem no <b>aplicativo desktop</b>. Não são assistentes genéricos
+            com nome de pessoa: cada um domina uma disciplina, conhece a norma aplicável e
+            entrega um artefato concreto — planilha, memorial, cronograma ou laudo. E cada um
+            pode chamar a plataforma online pelas ferramentas de domínio.
           </p>
         </div>
         <div className="agrid rv">
@@ -163,7 +168,7 @@ export const Final: React.FC = () => (
       <h2 style={{ marginTop: 26 }}>Sua próxima obra começa com o orçamento certo.</h2>
       <p>Instale, aponte para o projeto e comece pelo escopo. Sem configuração longa.</p>
       <div className="cta-row">
-        <a className="btn btn-primary btn-lg" href={baixar.url} target="_blank" rel="noreferrer">{baixar.rotulo}</a>
+        <a className="btn btn-primary btn-lg" href={online.url} target="_blank" rel="noreferrer">{online.rotulo}</a>
         <a className="btn btn-ghost btn-lg" href="#contato">Falar com o engenheiro</a>
       </div>
       <p className="nota-baixar">{baixar.nota}</p>
@@ -192,6 +197,7 @@ export const Footer: React.FC = () => (
 )
 
 const navFooter: { label: string; href: string }[] = [
+  { label: 'Ecossistema', href: '#ecossistema' },
   { label: 'Agentes', href: '#agentes' },
   { label: 'Recursos', href: '#recursos' },
   { label: 'Como funciona', href: '#fluxo' },
