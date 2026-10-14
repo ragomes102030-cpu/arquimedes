@@ -145,7 +145,7 @@ export const Prancheta: React.FC = () => {
 
       <dl className="carimbo">
         <div><dt>Projeto</dt><dd>024/2026</dd></div>
-        <div><dt>Responsável</dt><dd>Eng. titular</dd></div>
+        <div><dt>Responsável</dt><dd>Eng. titular <em>· CREA</em></dd></div>
         <div><dt>Data-base</dt><dd>Set/2026</dd></div>
         <div><dt>Revisão</dt><dd>R03</dd></div>
       </dl>
