@@ -198,6 +198,7 @@ export const Footer: React.FC = () => (
 
 const navFooter: { label: string; href: string }[] = [
   { label: 'Ecossistema', href: '#ecossistema' },
+  { label: 'Agente de campo', href: '#agente' },
   { label: 'Agentes', href: '#agentes' },
   { label: 'Recursos', href: '#recursos' },
   { label: 'Como funciona', href: '#fluxo' },

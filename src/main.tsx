@@ -5,6 +5,7 @@ import { Header, useTema } from './components/Chrome'
 import { Hero, Agentes, Recursos, Fluxo, Dominios, Perguntas, Final, Footer } from './components/Secoes'
 import { Contato } from './components/Contato'
 import { Ecossistema, Ciclo, DuvidasEcossistema } from './components/Ecossistema'
+import { Agente } from './components/Agente'
 
 function App() {
   const { tema, alternar } = useTema()
@@ -16,6 +17,7 @@ function App() {
         {/* o ecossistema vem primeiro: é o que o produto é */}
         <Ecossistema />
         <Ciclo />
+        <Agente />
         <Agentes />
         <Recursos />
         <Fluxo />

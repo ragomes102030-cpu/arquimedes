@@ -4,6 +4,7 @@ import { baixar, online } from '../data/contato'
 
 export const NAV: { label: string; href: string }[] = [
   { label: 'Ecossistema', href: '#ecossistema' },
+  { label: 'Agente de campo', href: '#agente' },
   { label: 'Agentes', href: '#agentes' },
   { label: 'Recursos', href: '#recursos' },
   { label: 'Perguntas', href: '#perguntas' },
