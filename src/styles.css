@@ -4,24 +4,26 @@
    lugar de raio arredondado, cota com seta como separador, carimbo como
    bloco de informação.
 
-   Paleta alinhada ao sistema do usuário: navy #071522 + menta #8ce6e2,
-   extraídos por leitura de pixel da tela de referência (não estimados).
+   Paleta alinhada ao sistema online do usuário (namespace --arq-*), lida do
+   CSS publicado em plataforma-obras-api.onrender.com — os valores são os
+   oficiais dele, não aproximações.
    ========================================================================== */
 
 :root {
   /* mesa de desenho (escuro, padrão) */
-  --ground: #071522;
-  --sheet: #0a1e2d;
-  --sheet-2: #0e253b;
-  --line: rgba(140, 230, 226, 0.14);
-  --line-2: rgba(140, 230, 226, 0.07);
-  --ink: #f1f7fb;
-  --ink-2: #b4bbc2;
-  --ink-3: #8fa6b0;
+  --ground: #071522;   /* = --arq-bg */
+  --sheet: #0d2030;    /* = --arq-panel */
+  --sheet-2: #10283a;  /* = --arq-panel-2 */
+  --line: rgba(163, 194, 215, 0.16);  /* = --arq-line */
+  --line-2: rgba(163, 194, 215, 0.08);
+  --ink: #eef6fb;      /* = --arq-text */
+  --ink-2: #a0b5c5;    /* = --arq-muted */
+  --ink-3: #80919e;    /* derivado do muted, para texto de 11-12px passar AA */
 
-  --accent: #8ce6e2;
+  --accent: #8ce6e2;   /* = --arq-cyan */
   --accent-ink: #071522;
   --accent-soft: rgba(140, 230, 226, 0.13);
+  --accent-2: #8baeff; /* = --arq-blue, segunda cor de dado (séries de gráfico) */
 
   --ok: #7bd88f;
   --warn: #e8a06a;
@@ -43,22 +45,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* papel vegetal */
+/* papel vegetal — usa os tokens claros do próprio sistema (--arq-obras-*) */
 html[data-theme="light"] {
-  --ground: #f2f6f8;
+  --ground: #f3f6f8;   /* = --arq-obras-bg */
   --sheet: #ffffff;
-  --sheet-2: #e8eff3;
-  --line: rgba(7, 33, 52, 0.16);
-  --line-2: rgba(7, 33, 52, 0.07);
-  --ink: #071522;
+  --sheet-2: #eaf0f4;
+  --line: #dce5eb;     /* = --arq-obras-line */
+  --line-2: rgba(21, 43, 59, 0.06);
+  --ink: #152b3b;      /* = --arq-obras-ink */
   --ink-2: #3d5a6b;
-  /* escurecido de #5f7b8a: em 11-12px sobre sheet-2 dava 3,86:1 (abaixo de AA) */
+  /* escurecido: em 11-12px sobre sheet-2 precisa de >=4.5 */
   --ink-3: #446675;
 
   /* mesma matiz do acento escuro, escurecida para contraste sobre claro */
   --accent: #0d6f78;
   --accent-ink: #ffffff;
   --accent-soft: rgba(13, 111, 120, 0.12);
+  --accent-2: #1a5ec8;  /* = --accent-claro do sistema dele */
 
   --ok: #2f7d4f;
   --warn: #a8592b;

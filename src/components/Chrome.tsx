@@ -166,24 +166,25 @@ export const Prancheta: React.FC = () => {
         <div className="prancha-col">
           <div className="p-label">
             <span>Curva S · avanço</span>
-            <em>físico</em>
+            <em>previsto × real</em>
           </div>
-          <svg viewBox="0 0 220 132" width="100%" height="132" aria-label="Curva S de avanço físico">
+          <svg viewBox="0 0 220 132" width="100%" height="132" aria-label="Curva S de avanço físico, previsto contra realizado">
             <g stroke="currentColor" opacity="0.13">
               {[0, 1, 2, 3].map((i) => <line key={`h${i}`} x1="0" y1={8 + i * 38} x2="220" y2={8 + i * 38} />)}
               {[0, 1, 2, 3, 4, 5].map((i) => <line key={`v${i}`} x1={i * 44} y1="0" x2={i * 44} y2="122" />)}
             </g>
+            {/* previsto — ciano (--arq-cyan) */}
             <path
               className="draw"
               d="M4 122 C 52 118, 78 104, 104 76 S 168 26, 216 12"
               fill="none" stroke="var(--accent)" strokeWidth="2.2" pathLength={1}
             />
+            {/* realizado — azul (--arq-blue): segunda série, como no sistema dele */}
             <path
               className="draw"
               style={{ animationDelay: '.5s' }}
               d="M4 122 C 60 116, 92 96, 118 72 S 176 34, 216 22"
-              fill="none" stroke="currentColor" strokeWidth="1.4" opacity="0.45"
-              strokeDasharray="4 4" pathLength={1}
+              fill="none" stroke="var(--accent-2)" strokeWidth="1.8" strokeDasharray="4 4" pathLength={1}
             />
             <circle cx="216" cy="12" r="3.4" fill="var(--accent)" className="fade" />
           </svg>
