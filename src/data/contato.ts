@@ -12,11 +12,13 @@ export const contato = {
 }
 
 export const baixar = {
-  /** Página de releases. Trocar por URL do instalador quando existir. */
+  /** Enquanto não houver binário, isto é status, não ação. Ver `emConstrucao`. */
   url: 'https://github.com/ragomes102030-cpu/arquimedes/releases',
-  rotulo: 'Baixar o Arquimedes',
+  rotulo: 'Desktop em preparação',
+  /** Quando true, a interface mostra status em vez de botão que leva a lugar nenhum. */
+  emConstrucao: true,
   /** Aviso honesto exibido perto do CTA enquanto não há instalador. */
-  nota: 'Instalador em preparação — por enquanto, acompanhe o repositório.',
+  nota: 'O instalador do desktop ainda não está publicado. A plataforma online já funciona, e o agente de campo atende no Telegram.',
 }
 
 export const linkWhats = (texto: string) =>

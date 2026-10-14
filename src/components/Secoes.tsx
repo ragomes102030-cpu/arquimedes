@@ -166,12 +166,15 @@ export const Final: React.FC = () => (
       {/* aqui ha espaco para a alavanca completa: fulcro, peso e forca */}
       <Alavanca size={104} />
       <h2 style={{ marginTop: 26 }}>Sua próxima obra começa com o orçamento certo.</h2>
-      <p>Instale, aponte para o projeto e comece pelo escopo. Sem configuração longa.</p>
+      <p>Comece pela plataforma online — ela já está no ar e não precisa instalar nada.</p>
       <div className="cta-row">
         <a className="btn btn-primary btn-lg" href={online.url} target="_blank" rel="noreferrer">{online.rotulo}</a>
         <a className="btn btn-ghost btn-lg" href="#contato">Falar com o engenheiro</a>
       </div>
-      <p className="nota-baixar">{baixar.nota}</p>
+      <p className="nota-baixar">
+        <span className="selo-mini"><i aria-hidden="true" />{baixar.rotulo}</span>
+        {baixar.nota}
+      </p>
       <div className="marcas">
         {modelos.map((m) => <span key={m}>{m}</span>)}
       </div>

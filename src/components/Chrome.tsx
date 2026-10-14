@@ -111,9 +111,16 @@ export const Header: React.FC<{ tema: string; onAlternar: () => void; prefixo?: 
             <a key={n.label} href={n.href} onClick={() => setAberto(false)}>{n.label}</a>
           ))}
         </nav>
-        <a className="btn btn-primary btn-lg drawer-cta" href={baixar.url} target="_blank" rel="noreferrer" onClick={() => setAberto(false)}>
-          {baixar.rotulo}
-        </a>
+        {baixar.emConstrucao ? (
+          <span className="selo-construcao" aria-label="Desktop em preparação">
+            <i aria-hidden="true" />
+            {baixar.rotulo}
+          </span>
+        ) : (
+          <a className="btn btn-primary btn-lg drawer-cta" href={baixar.url} target="_blank" rel="noreferrer" onClick={() => setAberto(false)}>
+            {baixar.rotulo}
+          </a>
+        )}
       </div>
       {aberto && <div className="drawer-veu" onClick={() => setAberto(false)} aria-hidden="true" />}
     </>

@@ -140,6 +140,20 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .drawer-nav a:hover { color: var(--accent); }
 .drawer-cta { margin-top: auto; width: 100%; }
+
+/* Selo de status para o que ainda não é entregável — não é botão porque não
+   leva a lugar nenhum. Antes disto, o CTA do menu abria uma página sem releases. */
+.selo-construcao {
+  margin-top: auto; width: 100%; height: 52px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  border: 1px dashed var(--line); color: var(--ink-3);
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase;
+  cursor: default;
+}
+.selo-construcao i {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--warn, #d9a441); flex: none;
+}
 .drawer-veu { position: fixed; inset: 0; z-index: 80; background: rgb(0 0 0 / 0.45); }
 
 @media (prefers-reduced-motion: reduce) {
@@ -494,6 +508,19 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .nota-baixar {
   margin-top: 12px; font-family: var(--mono); font-size: 11.5px;
   color: var(--ink-3);
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  flex-wrap: wrap; text-align: center;
+}
+/* selo inline de status — acompanha a nota onde o botão antigo ficava */
+.selo-mini {
+  display: inline-flex; align-items: center; gap: 7px;
+  border: 1px dashed var(--line); color: var(--ink-3);
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 4px 10px;
+}
+.selo-mini i {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--warn, #d9a441); flex: none;
 }
 
 /* ---------- cta final ---------- */
