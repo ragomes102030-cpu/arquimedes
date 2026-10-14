@@ -9,7 +9,8 @@ import { baixar, online } from '../data/contato'
  */
 export const navDe = (prefixo = ''): { label: string; href: string }[] => [
   { label: 'Ecossistema', href: `${prefixo}#ecossistema` },
-  // no guia, o item aponta para a propria pagina (ancora no topo)
+  // no guia e na demo, o item aponta para a propria pagina
+  { label: 'Demonstração', href: prefixo ? '#' : 'demo/' },
   { label: 'Agente de campo', href: prefixo ? '#' : 'guia/' },
   { label: 'Agentes', href: `${prefixo}#agentes` },
   { label: 'Recursos', href: `${prefixo}#recursos` },

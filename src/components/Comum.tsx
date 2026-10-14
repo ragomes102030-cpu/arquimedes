@@ -6,6 +6,7 @@ export { Marca }
 /** Links do rodapé — as duas páginas compartilham. */
 export const RODAPE: { label: string; href: string }[] = [
   { label: 'Ecossistema', href: 'index.html#ecossistema' },
+  { label: 'Demonstração', href: 'demo/' },
   { label: 'Agente de campo', href: 'guia/' },
   { label: 'Agentes', href: 'index.html#agentes' },
   { label: 'Recursos', href: 'index.html#recursos' },
