@@ -2,26 +2,29 @@
    Arquimedes — sistema visual
    Linguagem: prancha técnica. Hairlines no lugar de sombra, canto vivo no
    lugar de raio arredondado, cota com seta como separador, carimbo como
-   bloco de informação. Acento único: amarelo de instrumento topográfico.
+   bloco de informação.
+
+   Paleta alinhada ao sistema do usuário: navy #071522 + menta #8ce6e2,
+   extraídos por leitura de pixel da tela de referência (não estimados).
    ========================================================================== */
 
 :root {
   /* mesa de desenho (escuro, padrão) */
-  --ground: #15171a;
-  --sheet: #1c1f23;
-  --sheet-2: #23272c;
-  --line: rgba(255, 255, 255, 0.11);
-  --line-2: rgba(255, 255, 255, 0.055);
-  --ink: #e9e7e2;
-  --ink-2: #a8adb4;
-  --ink-3: #737980;
+  --ground: #071522;
+  --sheet: #0a1e2d;
+  --sheet-2: #0e253b;
+  --line: rgba(140, 230, 226, 0.14);
+  --line-2: rgba(140, 230, 226, 0.07);
+  --ink: #f1f7fb;
+  --ink-2: #b4bbc2;
+  --ink-3: #8fa6b0;
 
-  --accent: #e9ae3c;
-  --accent-ink: #15171a;
-  --accent-soft: rgba(233, 174, 60, 0.13);
+  --accent: #8ce6e2;
+  --accent-ink: #071522;
+  --accent-soft: rgba(140, 230, 226, 0.13);
 
-  --ok: #7bb662;
-  --warn: #e07a5f;
+  --ok: #7bd88f;
+  --warn: #e8a06a;
 
   --display: "Bahnschrift", "DIN Alternate", "DIN Condensed", "Roboto Condensed",
     "Arial Narrow", "Helvetica Neue", sans-serif;
@@ -42,21 +45,23 @@
 
 /* papel vegetal */
 html[data-theme="light"] {
-  --ground: #eceae5;
-  --sheet: #f7f6f3;
-  --sheet-2: #f0eeea;
-  --line: rgba(24, 28, 32, 0.16);
-  --line-2: rgba(24, 28, 32, 0.07);
-  --ink: #1e2226;
-  --ink-2: #5a6169;
-  --ink-3: #868d95;
+  --ground: #f2f6f8;
+  --sheet: #ffffff;
+  --sheet-2: #e8eff3;
+  --line: rgba(7, 33, 52, 0.16);
+  --line-2: rgba(7, 33, 52, 0.07);
+  --ink: #071522;
+  --ink-2: #3d5a6b;
+  /* escurecido de #5f7b8a: em 11-12px sobre sheet-2 dava 3,86:1 (abaixo de AA) */
+  --ink-3: #446675;
 
-  --accent: #b8791a;
+  /* mesma matiz do acento escuro, escurecida para contraste sobre claro */
+  --accent: #0d6f78;
   --accent-ink: #ffffff;
-  --accent-soft: rgba(184, 121, 26, 0.12);
+  --accent-soft: rgba(13, 111, 120, 0.12);
 
-  --ok: #4f7d3a;
-  --warn: #b8563b;
+  --ok: #2f7d4f;
+  --warn: #a8592b;
 
   color-scheme: light;
 }

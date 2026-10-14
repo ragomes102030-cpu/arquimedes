@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <!-- Tile solido: garante contraste em qualquer fundo de aba, claro ou escuro -->
-  <rect width="64" height="64" rx="12" fill="#15171a"/>
+  <rect width="64" height="64" rx="12" fill="#071522"/>
   <path fill-rule="evenodd" clip-rule="evenodd"
-        d="M32 9 L56 51 H8 Z M32 23 L42 41 H22 Z" fill="#e9ae3c"/>
-  <rect x="8" y="51" width="48" height="7" fill="#e9ae3c"/>
+        d="M32 9 L56 51 H8 Z M32 23 L42 41 H22 Z" fill="#8ce6e2"/>
+  <rect x="8" y="51" width="48" height="7" fill="#8ce6e2"/>
 </svg>
