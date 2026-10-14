@@ -1,0 +1,126 @@
+/* ==========================================================================
+   Guia — página de leitura longa.
+   Aqui a profundidade é virtude: coluna estreita, respiro, hierarquia clara.
+   ========================================================================== */
+
+.g-topo { padding: 44px 0 56px; border-bottom: 1px solid var(--line); }
+.g-volta {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em;
+  color: var(--ink-3); text-transform: uppercase;
+}
+.g-volta:hover { color: var(--accent); }
+.g-topo h1 {
+  margin-top: 20px; font-size: clamp(2rem, 4.4vw, 3.1rem); max-width: 22ch;
+}
+.g-lede {
+  margin-top: 22px; max-width: 64ch; font-size: 1.06rem; color: var(--ink-2);
+}
+.g-meta {
+  margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px 22px;
+  font-family: var(--mono); font-size: 11.5px; color: var(--ink-3);
+}
+.g-meta span { display: flex; align-items: center; gap: 7px; }
+.g-meta span::before { content: ''; width: 4px; height: 4px; background: var(--ink-3); }
+
+.g-sec { padding: 64px 0; }
+.g-sec.g-tint { background: var(--sheet-2); border-block: 1px solid var(--line); }
+
+/* coluna de leitura */
+.g-narrow { max-width: 760px; }
+.g-narrow h2 {
+  font-size: clamp(1.5rem, 2.8vw, 2.05rem); margin-bottom: 20px; max-width: 26ch;
+}
+.g-narrow > p {
+  margin-top: 18px; font-size: 1.03rem; color: var(--ink-2); max-width: 68ch;
+}
+.g-narrow > p b { color: var(--ink); font-weight: 600; }
+
+/* destaque */
+.g-destaque {
+  margin-top: 30px; padding: 22px; border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
+  background: var(--accent-soft); display: flex; gap: 16px; align-items: flex-start;
+}
+.g-destaque b { font-family: var(--display); font-size: 1.02rem; }
+.g-destaque p { margin-top: 7px; font-size: 13.5px; color: var(--ink-2); }
+.g-destaque a { color: var(--accent); font-weight: 600; }
+.g-destaque a:hover { text-decoration: underline; }
+
+/* conversa — largura controlada, mais estreita que o texto */
+.g-conversa {
+  max-width: 560px; margin-top: 34px; padding: 20px;
+  border: 1px solid var(--line); background: var(--sheet); display: grid; gap: 18px;
+}
+
+/* passos — verticais, numerados */
+.g-passos { list-style: none; margin: 34px 0 0; padding: 0; display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.g-passo {
+  background: var(--sheet); padding: 24px 26px;
+  display: grid; grid-template-columns: 56px 1fr; gap: 20px; align-items: start;
+}
+.g-passo-n {
+  font-family: var(--mono); font-size: 13px; color: var(--accent);
+  padding-top: 3px; border-right: 1px solid var(--line); padding-right: 20px;
+}
+.g-passo h3 { font-size: 1.08rem; }
+.g-passo p { margin-top: 10px; font-size: 14px; color: var(--ink-2); max-width: 62ch; }
+.g-passo-detalhe {
+  margin-top: 12px !important; padding: 10px 13px;
+  border-left: 2px solid var(--accent); background: var(--sheet-2);
+  font-size: 13px !important; color: var(--ink) !important;
+}
+
+/* obstáculos */
+.g-perrengues { margin-top: 34px; display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.g-perrengue { background: var(--sheet); padding: 26px; }
+.g-perrengue-hd { display: grid; gap: 10px; }
+.g-perrengue h3 { font-size: 1.1rem; max-width: 52ch; }
+.g-sinal {
+  display: inline-block; margin-top: 4px; padding: 5px 10px;
+  border: 1px solid var(--line); background: var(--sheet-2);
+  font-family: var(--mono); font-size: 11.5px; color: var(--ink-3);
+}
+.g-perrengue dl {
+  margin: 22px 0 0; display: grid; grid-template-columns: 84px 1fr; gap: 14px 18px;
+  align-items: baseline; padding-top: 20px; border-top: 1px solid var(--line);
+}
+.g-perrengue dt {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.g-perrengue dd { margin: 0; font-size: 13.5px; color: var(--ink-2); max-width: 66ch; }
+
+/* avisos */
+.g-avisos { margin: 28px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.g-avisos li {
+  font-size: 14px; color: var(--ink-2); padding-left: 18px; position: relative; max-width: 66ch;
+}
+.g-avisos li::before {
+  content: ''; position: absolute; left: 0; top: 9px; width: 7px; height: 1px; background: var(--accent);
+}
+
+/* próximos passos */
+.g-proximos { margin-top: 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.g-proximo {
+  background: var(--sheet); padding: 24px; display: flex; flex-direction: column; gap: 11px;
+  transition: background .16s;
+}
+.g-proximo:hover { background: var(--accent-soft); }
+.g-proximo h3 { font-size: 1.05rem; }
+.g-proximo p { font-size: 13.5px; color: var(--ink-2); }
+.g-proximo span {
+  margin-top: auto; padding-top: 14px;
+  font-family: var(--display); font-size: 14px; font-weight: 600; color: var(--accent);
+}
+
+/* cta */
+.g-cta { padding: 84px 0; text-align: left; border-top: 1px solid var(--line); }
+.g-cta h2 { margin-top: 22px; font-size: clamp(1.6rem, 3.2vw, 2.3rem); max-width: 24ch; }
+.g-cta p { margin-top: 18px; color: var(--ink-2); max-width: 62ch; }
+.g-cta .btn { margin-top: 26px; }
+
+@media (max-width: 640px) {
+  .g-passo { grid-template-columns: 1fr; gap: 12px; }
+  .g-passo-n { border-right: 0; border-bottom: 1px solid var(--line); padding: 0 0 10px; }
+  .g-perrengue dl { grid-template-columns: 1fr; gap: 6px; }
+  .g-perrengue dd { margin-bottom: 10px; }
+}

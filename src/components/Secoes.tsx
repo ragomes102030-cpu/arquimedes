@@ -179,32 +179,6 @@ export const Final: React.FC = () => (
   </section>
 )
 
-export const Footer: React.FC = () => (
-  <footer>
-    <div className="wrap foot">
-      <span style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        <Marca size={22} />
-        <span>Arquimedes · engenharia &amp; obras</span>
-      </span>
-      <nav className="foot-links">
-        {navFooter.map((l) => (
-          <a key={l.label} href={l.href}>{l.label}</a>
-        ))}
-      </nav>
-      <span>Motor aberto · licença Apache-2.0</span>
-    </div>
-  </footer>
-)
-
-const navFooter: { label: string; href: string }[] = [
-  { label: 'Ecossistema', href: '#ecossistema' },
-  { label: 'Agente de campo', href: '#agente' },
-  { label: 'Agentes', href: '#agentes' },
-  { label: 'Recursos', href: '#recursos' },
-  { label: 'Como funciona', href: '#fluxo' },
-  { label: 'Perguntas', href: '#perguntas' },
-  { label: 'Contato', href: '#contato' },
-]
 
 export const Dominios: React.FC = () => (
   <section className="sec sec-tint" style={{ paddingTop: 54, paddingBottom: 54 }}>

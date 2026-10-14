@@ -2,13 +2,22 @@ import React, { useEffect, useState } from 'react'
 import { Wordmark } from './Marca'
 import { baixar, online } from '../data/contato'
 
-export const NAV: { label: string; href: string }[] = [
-  { label: 'Ecossistema', href: '#ecossistema' },
-  { label: 'Agente de campo', href: '#agente' },
-  { label: 'Agentes', href: '#agentes' },
-  { label: 'Recursos', href: '#recursos' },
-  { label: 'Perguntas', href: '#perguntas' },
+/**
+ * A navegacao vive nas duas paginas, entao cada link precisa resolver nas duas.
+ * Na landing a ancora basta; no guia, ela tem de voltar para a landing primeiro.
+ * `prefixo` e '' na landing e '../' no guia.
+ */
+export const navDe = (prefixo = ''): { label: string; href: string }[] => [
+  { label: 'Ecossistema', href: `${prefixo}#ecossistema` },
+  // no guia, o item aponta para a propria pagina (ancora no topo)
+  { label: 'Agente de campo', href: prefixo ? '#' : 'guia/' },
+  { label: 'Agentes', href: `${prefixo}#agentes` },
+  { label: 'Recursos', href: `${prefixo}#recursos` },
+  { label: 'Perguntas', href: `${prefixo}#perguntas` },
 ]
+
+/** Compatibilidade: a landing usa o conjunto sem prefixo. */
+export const NAV = navDe('')
 
 export function useTema() {
   const [tema, setTema] = useState<'dark' | 'light'>(() => {
@@ -22,7 +31,8 @@ export function useTema() {
   return { tema, alternar: () => setTema((t) => (t === 'dark' ? 'light' : 'dark')) }
 }
 
-export const Header: React.FC<{ tema: string; onAlternar: () => void }> = ({ tema, onAlternar }) => {
+export const Header: React.FC<{ tema: string; onAlternar: () => void; prefixo?: string }> = ({ tema, onAlternar, prefixo = '' }) => {
+  const itens = navDe(prefixo)
   const [aberto, setAberto] = useState(false)
 
   // trava o scroll do fundo enquanto o menu mobile esta aberto
@@ -46,16 +56,16 @@ export const Header: React.FC<{ tema: string; onAlternar: () => void }> = ({ tem
     <>
       <header className="hdr">
         <div className="wrap hdr-in">
-          <a href="#topo" aria-label="Arquimedes — início">
+          <a href={`${prefixo}#topo`} aria-label="Arquimedes — início">
             <Wordmark />
           </a>
           <nav className="nav">
-            {NAV.map((n) => (
+            {itens.map((n) => (
               <a key={n.label} href={n.href}>{n.label}</a>
             ))}
           </nav>
           <div className="hdr-actions">
-            <a className="btn btn-ghost" href="#perguntas">Dúvidas</a>
+            <a className="btn btn-ghost" href={`${prefixo}#perguntas`}>Dúvidas</a>
             <a className="btn btn-primary" href={online.url} target="_blank" rel="noreferrer">Abrir plataforma</a>
             <button
               className="icon-btn"
@@ -94,7 +104,7 @@ export const Header: React.FC<{ tema: string; onAlternar: () => void }> = ({ tem
           </button>
         </div>
         <nav className="drawer-nav">
-          {NAV.map((n) => (
+          {itens.map((n) => (
             <a key={n.label} href={n.href} onClick={() => setAberto(false)}>{n.label}</a>
           ))}
         </nav>

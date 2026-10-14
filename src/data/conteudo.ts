@@ -183,6 +183,14 @@ export interface Pergunta { q: string; a: string }
 
 export const perguntas: Pergunta[] = [
   {
+    q: 'Preciso dos dois produtos?',
+    a: 'Não. A plataforma online funciona sozinha — quem só precisa planejar e acompanhar pelo navegador usa ela e pronto. O desktop entra quando você quer os agentes trabalhando junto: orçamento assistido, geração de planilha e memorial, análise de projeto. E quem usa os dois ganha o ciclo completo, com o escopo indo e voltando sem redigitação.',
+  },
+  {
+    q: 'Como os dois conversam?',
+    a: 'Por três servidores de domínio — EAP, cronograma e Gantt/LOB — que estão no ar e respondendo. Eles expõem 42 comandos que falam a linguagem da obra: criar nó de EAP, encadear dependência, calcular caminho crítico, dimensionar equipe. O agente chama esses comandos em vez de você preencher formulário.',
+  },
+  {
     q: 'O que o Arquimedes faz na prática?',
     a: 'Ele cobre o ciclo de gestão da obra: estrutura o escopo em EAP, levanta quantitativo, monta o orçamento com SINAPI ou SEINFRA, encadeia o cronograma com caminho crítico, apura medição e acompanha o avanço físico-financeiro. Também entra no técnico, com dimensionamento estrutural, diagnóstico de patologia e cálculo de terraplenagem.',
   },
@@ -200,7 +208,7 @@ export const perguntas: Pergunta[] = [
   },
   {
     q: 'Meus dados de obra ficam onde?',
-    a: 'No seu computador. O Arquimedes roda localmente e se conecta direto ao provedor de modelo que você escolher, sem passar por servidor intermediário. Orçamento, proposta e projeto não saem da sua máquina por conta própria.',
+    a: 'No seu computador. O agente roda localmente e se conecta direto ao provedor de modelo que você escolher, sem passar por servidor intermediário. Orçamento, proposta e projeto não saem da sua máquina por conta própria — e o que você publica para a plataforma fica na conta da obra, para a equipe acessar. Você decide o que sobe.',
   },
   {
     q: 'Preciso saber programar?',
