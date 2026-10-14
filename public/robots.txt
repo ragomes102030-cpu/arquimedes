@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ragomes102030-cpu.github.io/arquimedes/sitemap.xml

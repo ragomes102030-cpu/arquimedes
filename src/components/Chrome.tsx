@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Wordmark } from './Marca'
+import { baixar } from '../data/contato'
 
-const nav: { label: string; href: string }[] = [
+export const NAV: { label: string; href: string }[] = [
   { label: 'Agentes', href: '#agentes' },
   { label: 'Recursos', href: '#recursos' },
   { label: 'Como funciona', href: '#fluxo' },
@@ -20,31 +21,90 @@ export function useTema() {
   return { tema, alternar: () => setTema((t) => (t === 'dark' ? 'light' : 'dark')) }
 }
 
-export const Header: React.FC<{ tema: string; onAlternar: () => void }> = ({ tema, onAlternar }) => (
-  <header className="hdr">
-    <div className="wrap hdr-in">
-      <a href="#topo" aria-label="Arquimedes — início">
-        <Wordmark />
-      </a>
-      <nav className="nav">
-        {nav.map((n) => (
-          <a key={n.label} href={n.href}>{n.label}</a>
-        ))}
-      </nav>
-      <div className="hdr-actions">
-        <a className="btn btn-ghost" href="#perguntas">Dúvidas</a>
-        <a className="btn btn-primary" href="#baixar">Baixar</a>
-        <button className="icon-btn" onClick={onAlternar} aria-label="Alternar tema claro e escuro" title="Alternar tema">
-          {tema === 'dark' ? (
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-          ) : (
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-          )}
-        </button>
+export const Header: React.FC<{ tema: string; onAlternar: () => void }> = ({ tema, onAlternar }) => {
+  const [aberto, setAberto] = useState(false)
+
+  // trava o scroll do fundo enquanto o menu mobile esta aberto
+  useEffect(() => {
+    document.body.style.overflow = aberto ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [aberto])
+
+  // fecha com Esc
+  useEffect(() => {
+    if (!aberto) return
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setAberto(false)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [aberto])
+
+
+  return (
+    <>
+      <header className="hdr">
+        <div className="wrap hdr-in">
+          <a href="#topo" aria-label="Arquimedes — início">
+            <Wordmark />
+          </a>
+          <nav className="nav">
+            {NAV.map((n) => (
+              <a key={n.label} href={n.href}>{n.label}</a>
+            ))}
+          </nav>
+          <div className="hdr-actions">
+            <a className="btn btn-ghost" href="#perguntas">Dúvidas</a>
+            <a className="btn btn-primary" href={baixar.url} target="_blank" rel="noreferrer">Baixar</a>
+            <button
+              className="icon-btn"
+              onClick={onAlternar}
+              aria-label="Alternar tema claro e escuro"
+              title="Alternar tema"
+            >
+              {tema === 'dark' ? (
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+              ) : (
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+              )}
+            </button>
+            <button
+              className="icon-btn so-mobile"
+              onClick={() => setAberto(true)}
+              aria-label="Abrir menu"
+              aria-expanded={aberto}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="square"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/*
+        A gaveta fica FORA do <header>: o header usa backdrop-filter, que cria
+        bloco contentor para position:fixed. Dentro dele, a gaveta se
+        posicionaria em relação ao header e empurraria a página na horizontal.
+      */}
+      <div className={`drawer${aberto ? ' on' : ''}`} role="dialog" aria-modal="true" aria-label="Menu">
+        <div className="drawer-hd">
+          <Wordmark />
+          <button className="icon-btn" onClick={() => setAberto(false)} aria-label="Fechar menu">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="square"><path d="M5 5l14 14M19 5L5 19"/></svg>
+          </button>
+        </div>
+        <nav className="drawer-nav">
+          {NAV.map((n) => (
+            <a key={n.label} href={n.href} onClick={() => setAberto(false)}>{n.label}</a>
+          ))}
+        </nav>
+        <a className="btn btn-primary btn-lg drawer-cta" href={baixar.url} target="_blank" rel="noreferrer" onClick={() => setAberto(false)}>
+          {baixar.rotulo}
+        </a>
       </div>
-    </div>
-  </header>
-)
+      {aberto && <div className="drawer-veu" onClick={() => setAberto(false)} aria-hidden="true" />}
+    </>
+  )
+}
 
 /** Prancheta de obra: cronograma, orçamento e carimbo — o produto em uma tela. */
 export const Prancheta: React.FC = () => {

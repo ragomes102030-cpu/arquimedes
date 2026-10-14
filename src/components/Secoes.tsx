@@ -3,6 +3,8 @@ import { agentes, recursos, fluxo, perguntas, modelos, dominios } from '../data/
 import { Prancheta } from './Chrome'
 import { Marca, Alavanca } from './Marca'
 import { Glifo } from './Glifos'
+import { Contato } from './Contato'
+import { baixar } from '../data/contato'
 
 function useRevelar() {
   const ref = useRef<HTMLElement>(null)
@@ -33,8 +35,8 @@ export const Hero: React.FC = () => (
           Roda no seu computador, em português.
         </p>
         <div className="cta-row">
-          <a className="btn btn-primary btn-lg" href="#baixar">Baixar o Arquimedes</a>
-          <a className="btn btn-ghost btn-lg" href="#agentes">Ver os agentes</a>
+          <a className="btn btn-primary btn-lg" href={baixar.url} target="_blank" rel="noreferrer">{baixar.rotulo}</a>
+          <a className="btn btn-ghost btn-lg" href="#contato">Falar com o engenheiro</a>
         </div>
         <div className="trust">
           <span>Windows · macOS · Linux</span>
@@ -161,9 +163,10 @@ export const Final: React.FC = () => (
       <h2 style={{ marginTop: 26 }}>Sua próxima obra começa com o orçamento certo.</h2>
       <p>Instale, aponte para o projeto e comece pelo escopo. Sem configuração longa.</p>
       <div className="cta-row">
-        <a className="btn btn-primary btn-lg" href="#baixar">Baixar o Arquimedes</a>
-        <a className="btn btn-ghost btn-lg" href="#agentes">Conhecer os agentes</a>
+        <a className="btn btn-primary btn-lg" href={baixar.url} target="_blank" rel="noreferrer">{baixar.rotulo}</a>
+        <a className="btn btn-ghost btn-lg" href="#contato">Falar com o engenheiro</a>
       </div>
+      <p className="nota-baixar">{baixar.nota}</p>
       <div className="marcas">
         {modelos.map((m) => <span key={m}>{m}</span>)}
       </div>
@@ -193,6 +196,7 @@ const navFooter: { label: string; href: string }[] = [
   { label: 'Recursos', href: '#recursos' },
   { label: 'Como funciona', href: '#fluxo' },
   { label: 'Perguntas', href: '#perguntas' },
+  { label: 'Contato', href: '#contato' },
 ]
 
 export const Dominios: React.FC = () => (
