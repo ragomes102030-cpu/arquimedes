@@ -3,15 +3,17 @@ import { Wordmark } from './Marca'
 import { baixar, online } from '../data/contato'
 
 /**
- * A navegacao vive nas duas paginas, entao cada link precisa resolver nas duas.
- * Na landing a ancora basta; no guia, ela tem de voltar para a landing primeiro.
- * `prefixo` e '' na landing e '../' no guia.
+ * A navegacao vive nas tres paginas, entao cada link precisa resolver nas tres.
+ * Na landing a ancora basta; nas subpaginas, ela tem de voltar para a landing.
+ * `prefixo` e '' na landing e '../' nas subpaginas.
+ *
+ * `paginaAtual` diz onde estamos, para o item da propria pagina nao virar link
+ * morto: sem isso, estar na demo fazia "Agente de campo" apontar para "#".
  */
-export const navDe = (prefixo = ''): { label: string; href: string }[] => [
+export const navDe = (prefixo = '', paginaAtual = ''): { label: string; href: string }[] => [
   { label: 'Ecossistema', href: `${prefixo}#ecossistema` },
-  // no guia e na demo, o item aponta para a propria pagina
-  { label: 'Demonstração', href: prefixo ? '#' : 'demo/' },
-  { label: 'Agente de campo', href: prefixo ? '#' : 'guia/' },
+  { label: 'Demonstração', href: paginaAtual === 'demo' ? '#' : `${prefixo}demo/` },
+  { label: 'Agente de campo', href: paginaAtual === 'guia' ? '#' : `${prefixo}guia/` },
   { label: 'Agentes', href: `${prefixo}#agentes` },
   { label: 'Recursos', href: `${prefixo}#recursos` },
   { label: 'Perguntas', href: `${prefixo}#perguntas` },
@@ -32,8 +34,8 @@ export function useTema() {
   return { tema, alternar: () => setTema((t) => (t === 'dark' ? 'light' : 'dark')) }
 }
 
-export const Header: React.FC<{ tema: string; onAlternar: () => void; prefixo?: string }> = ({ tema, onAlternar, prefixo = '' }) => {
-  const itens = navDe(prefixo)
+export const Header: React.FC<{ tema: string; onAlternar: () => void; prefixo?: string; paginaAtual?: string }> = ({ tema, onAlternar, prefixo = '', paginaAtual = '' }) => {
+  const itens = navDe(prefixo, paginaAtual)
   const [aberto, setAberto] = useState(false)
 
   // trava o scroll do fundo enquanto o menu mobile esta aberto

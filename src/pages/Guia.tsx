@@ -25,7 +25,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Header tema={tema} onAlternar={alternar} prefixo="../" />
+      <Header tema={tema} onAlternar={alternar} prefixo="../" paginaAtual="guia" />
       <main>
         {/* cabeçalho do guia */}
         <section className="g-topo">
