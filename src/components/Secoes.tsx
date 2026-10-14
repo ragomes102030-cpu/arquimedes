@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { agentes, recursos, fluxo, perguntas, modelos, dominios } from '../data/conteudo'
 import { Prancheta } from './Chrome'
-import { Marca } from './Marca'
+import { Marca, Alavanca } from './Marca'
+import { Glifo } from './Glifos'
 
 function useRevelar() {
   const ref = useRef<HTMLElement>(null)
@@ -64,7 +65,7 @@ export const Agentes: React.FC = () => {
           {agentes.map((a) => (
             <button className="acard" key={a.id} type="button">
               <span className="aicon">
-                <Marca size={22} />
+                <Glifo id={a.id} />
               </span>
               <span className="fn">{a.funcao}</span>
               <h3>{a.nome}</h3>
@@ -155,8 +156,9 @@ export const Perguntas: React.FC = () => (
 export const Final: React.FC = () => (
   <section className="final" id="baixar">
     <div className="wrap">
-      <Marca size={44} />
-      <h2 style={{ marginTop: 22 }}>Sua próxima obra começa com o orçamento certo.</h2>
+      {/* aqui ha espaco para a alavanca completa: fulcro, peso e forca */}
+      <Alavanca size={104} />
+      <h2 style={{ marginTop: 26 }}>Sua próxima obra começa com o orçamento certo.</h2>
       <p>Instale, aponte para o projeto e comece pelo escopo. Sem configuração longa.</p>
       <div className="cta-row">
         <a className="btn btn-primary btn-lg" href="#baixar">Baixar o Arquimedes</a>
