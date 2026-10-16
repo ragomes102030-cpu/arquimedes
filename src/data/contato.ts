@@ -32,7 +32,7 @@ export const linkEmail = (assunto: string, corpo: string) =>
  * Verificada por HTTP: /healthz e /readyz respondem, 37 tabelas.
  */
 export const online = {
-  url: 'https://plataforma-obras-api.onrender.com/obras',
+  url: 'https://plataforma-obras.dockhosting.dev/obras',
   rotulo: 'Abrir a plataforma online',
   nota: 'Acesso por GitHub. Hoje restrito — a abertura para equipes está em construção.',
 }

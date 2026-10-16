@@ -50,7 +50,7 @@ export const pecas: Peca[] = [
       'Suprimentos e catálogo de preços',
       'Entrada pelo GitHub',
     ],
-    url: 'https://plataforma-obras-api.onrender.com/obras',
+    url: 'https://plataforma-obras.dockhosting.dev/obras',
     urlRotulo: 'Abrir a plataforma',
     estado: 'disponivel',
     notaEstado: 'No ar, em construção ativa',
@@ -132,7 +132,7 @@ export const duvidasEcossistema = [
 
 /** Serviços verificados por HTTP — a lista do que está realmente no ar. */
 export const servicos = [
-  { nome: 'Plataforma Obras', url: 'https://plataforma-obras-api.onrender.com', tipo: 'app + API' },
+  { nome: 'Plataforma Obras', url: 'https://plataforma-obras.dockhosting.dev', tipo: 'app + API' },
   { nome: 'MCP EAP', url: 'https://mcp-eap-server.onrender.com/mcp', tipo: '23 ferramentas' },
   { nome: 'MCP Cronograma', url: 'https://mcp-cronograma-server.onrender.com/mcp', tipo: '13 ferramentas' },
   { nome: 'MCP Gantt / LOB', url: 'https://mcp-gantt-lob-server.onrender.com/mcp', tipo: '6 ferramentas' },
