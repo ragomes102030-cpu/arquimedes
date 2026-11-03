@@ -10,39 +10,35 @@
    ========================================================================== */
 
 :root {
-  /* fundo de banco de trabalho digital */
-  --ground: #05080d;       /* = --arq-bg */
-  --sheet: #0e1a30;        /* = --arq-panel */
-  --sheet-2: #14284a;      /* = --arq-panel-2 */
-  --line: rgba(74, 244, 255, 0.24);   /* = --arq-line */
-  --line-2: rgba(74, 244, 255, 0.10);
+  /* mesa de desenho (escuro, padrão) */
+  --ground: #071522;   /* = --arq-bg */
+  --sheet: #0d2030;    /* = --arq-panel */
+  --sheet-2: #10283a;  /* = --arq-panel-2 */
+  --line: rgba(163, 194, 215, 0.16);  /* = --arq-line */
+  --line-2: rgba(163, 194, 215, 0.08);
+  --ink: #eef6fb;      /* = --arq-text */
+  --ink-2: #a0b5c5;    /* = --arq-muted */
+  --ink-3: #8fa0ad;    /* derivado do muted, para texto de 11-12px passar AA */
 
-  --ink: #eaf6ff;          /* = --arq-text */
-  --ink-2: #b7cfe4;        /* = --arq-muted */
-  --ink-3: #86a8c9;        /* derivado do muted, usar >=4.5 sobre sheet */
+  --accent: #8ce6e2;   /* = --arq-cyan */
+  --accent-ink: #071522;
+  --accent-soft: rgba(140, 230, 226, 0.13);
+  --accent-2: #8baeff; /* = --arq-blue, segunda cor de dado (séries de gráfico) */
 
-  --accent: #4af4ff;       /* ciano futurista */
-  --accent-2: #a7ff4d;     /* lima */
-  --accent-ink: #05080d;
-  --accent-soft: rgba(74, 244, 255, 0.16);
-  --accent-soft-2: rgba(166, 255, 77, 0.14);
-  --glow: rgba(74, 244, 255, 0.28);
-  --glow-2: rgba(166, 255, 77, 0.22);
+  --ok: #7bd88f;
+  --warn: #e8a06a;
 
-  --ok: #39ff14;
-  --warn: #ffb347;
+  --display: "Bahnschrift", "DIN Alternate", "DIN Condensed", "Roboto Condensed",
+    "Arial Narrow", "Helvetica Neue", sans-serif;
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --mono: "Cascadia Mono", "SF Mono", Consolas, "Liberation Mono", monospace;
 
-  /* tipografia: display geométrico, corpo limpo, mono para dados */
-  --display: "Space Grotesk", "Bahnschrift", "DIN Alternate", "Roboto Condensed", "Arial Narrow", system-ui, sans-serif;
-  --body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-  --mono: "JetBrains Mono", "Cascadia Mono", "SF Mono", Consolas, "Liberation Mono", monospace;
-
-  --maxw: 1200px;
+  --maxw: 1120px;
 
   color-scheme: dark;
   font-family: var(--body);
   font-size: 16px;
-  line-height: 1.65;
+  line-height: 1.6;
   color: var(--ink);
   background: var(--ground);
   -webkit-font-smoothing: antialiased;
@@ -51,62 +47,29 @@
 
 /* papel vegetal — usa os tokens claros do próprio sistema (--arq-obras-*) */
 html[data-theme="light"] {
-  --ground: #eef4fb;       /* --arq-obras-bg */
-  --sheet: #0f1f38;        /* --arq-obras-panel */
-  --sheet-2: #183050;      /* --arq-obras-panel-2 */
-  --line: rgba(0, 140, 255, 0.28);
-  --line-2: rgba(0, 140, 255, 0.12);
+  --ground: #f3f6f8;   /* = --arq-obras-bg */
+  --sheet: #ffffff;
+  --sheet-2: #eaf0f4;
+  --line: #dce5eb;     /* = --arq-obras-line */
+  --line-2: rgba(21, 43, 59, 0.06);
+  --ink: #152b3b;      /* = --arq-obras-ink */
+  --ink-2: #3d5a6b;
+  /* escurecido: em 11-12px sobre sheet-2 precisa de >=4.5 */
+  --ink-3: #3a5868;
 
-  --ink: #081426;
-  --ink-2: #0c2446;
-  /* 11-12px sobre sheet-2 só passa AA com este tom */
-  --ink-3: #235082;
-
-  --accent: #0d7bbf;       /* azul cibernético */
+  /* mesma matiz do acento escuro, escurecida para contraste sobre claro */
+  --accent: #0d6f78;
   --accent-ink: #ffffff;
-  --accent-soft: rgba(13, 123, 191, 0.14);
-  --accent-soft-2: rgba(13, 123, 191, 0.10);
-  --glow: rgba(13, 123, 191, 0.22);
-  --glow-2: rgba(13, 123, 191, 0.16);
+  --accent-soft: rgba(13, 111, 120, 0.12);
+  --accent-2: #1a5ec8;  /* = --accent-claro do sistema dele */
 
-  --ok: #2f8f5b;
-  --warn: #e8924a;
-
-  --display: "Space Grotesk", "Bahnschrift", system-ui, sans-serif;
-  --body: "Inter", system-ui, sans-serif;
-  --mono: "JetBrains Mono", "Cascadia Mono", monospace;
+  --ok: #2f7d4f;
+  --warn: #a8592b;
 
   color-scheme: light;
 }
 
 * { box-sizing: border-box; }
-
-/* ---------- utilidades futuristas ---------- */
-.glass {
-  background: rgba(14, 26, 48, 0.55);
-  backdrop-filter: blur(12px) saturate(150%);
-  border: 1px solid rgba(74, 244, 255, 0.20);
-}
-.glass-tight {
-  background: rgba(14, 26, 48, 0.65);
-  border: 1px solid rgba(74, 244, 255, 0.28);
-}
-.glow-border {
-  border-color: rgba(74, 244, 255, 0.45);
-  box-shadow: 0 0 0 1px rgba(74, 244, 255, 0.16), 0 0 26px rgba(74, 244, 255, 0.18);
-}
-.text-gradient {
-  background: linear-gradient(120deg, #a6ff4d, #4af4ff 60%, #9be9ff);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: gradient-flow 6s ease-in-out infinite;
-}
-@keyframes gradient-flow {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
 
 @media (min-width: 1280px) {
   .wrap { padding-inline: 48px; }
@@ -153,10 +116,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .brand { display: flex; align-items: center; gap: 11px; }
 .brand-txt { display: grid; line-height: 1.05; }
 .brand-txt b {
-  font-family: var(--display);
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
+  font-family: var(--display); font-size: 19px; font-weight: 600;
+  letter-spacing: 0.02em;
 }
 .brand-txt i {
   font-style: normal; font-size: 10.5px; letter-spacing: 0.11em;
@@ -215,18 +176,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
   font-family: var(--display); font-size: 15px; font-weight: 600; letter-spacing: 0.01em;
   transition: background .15s, border-color .15s, color .15s;
 }
-.btn-primary {
-  background: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 100%);
-  border-color: transparent;
-  color: var(--accent-ink);
-  box-shadow: 0 0 0 1px rgba(74,244,255,.25) inset, 0 0 20px rgba(74,244,255,.15);
-}
-.btn-primary:hover {
-  color: var(--accent-ink);
-  background: linear-gradient(120deg, #6ffcfc 0%, #c7ff6a 100%);
-  border-color: transparent;
-  box-shadow: 0 0 30px rgba(74,244,255,.28), 0 0 3px rgba(166,255,77,.18);
-}
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { background: color-mix(in srgb, var(--accent) 84%, #000); border-color: transparent; }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 .btn-lg { height: 52px; padding: 0 30px; font-size: 16px; }
 
@@ -249,25 +200,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .dim span { white-space: nowrap; }
 
 /* ---------- hero ---------- */
-.hero {
-  padding: 86px 0 0;
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(1200px 700px at 78% -8%, rgba(74, 244, 255, 0.07), transparent 55%),
-    radial-gradient(900px 600px at 12% 110%, rgba(166, 255, 77, 0.05), transparent 55%),
-    linear-gradient(180deg, var(--ground) 0%, var(--sheet) 55%, var(--sheet-2) 100%);
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(1200px 700px at 78% -8%, rgba(74, 244, 255, 0.10), transparent 55%),
-    radial-gradient(900px 600px at 12% 110%, rgba(166, 255, 77, 0.07), transparent 55%),
-    linear-gradient(180deg, var(--ground) 0%, var(--sheet) 55%, var(--sheet-2) 100%);
-  pointer-events: none;
-}
+.hero { padding: 74px 0 0; position: relative; }
 .hero > .wrap { position: relative; z-index: 1; }
 .hero-grid {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.06fr);
@@ -280,7 +213,6 @@ button { font: inherit; color: inherit; cursor: pointer; }
   color: var(--ink-2); text-transform: uppercase;
 }
 .kicker s { text-decoration: none; width: 6px; height: 6px; background: var(--accent); flex: none; }
-.kicker { padding: 6px 13px; background: rgba(74, 244, 255, 0.06); border-radius: 6px; }
 
 .hero h1 {
   margin-top: 26px;
@@ -289,13 +221,15 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .hero h1 em {
   font-style: normal;
-  color: transparent;
-  background: linear-gradient(120deg, #a6ff4d, #4af4ff 60%, #9be9ff);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
+  color: var(--accent);
+  /* marca-texto alinhado à linha, não à caixa inteira do elemento */
+  background-image: linear-gradient(var(--accent-soft), var(--accent-soft));
+  background-repeat: no-repeat;
+  background-size: 100% 0.38em;
+  background-position: 0 86%;
+  -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  animation: gradient-flow 6s ease-in-out infinite;
+  padding-bottom: 0.04em;
 }
 .hero .lede {
   margin-top: 24px; max-width: 52ch;
