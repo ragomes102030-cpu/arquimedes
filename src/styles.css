@@ -587,10 +587,83 @@ footer { border-top: 1px solid var(--line); padding: 40px 0 52px; background: va
   .hdr-actions .btn-ghost { display: none; }
 }
 
+/* ---------- fundo vivente do hero ---------- */
+.hero-bg {
+  position: absolute; inset: 0;
+  z-index: 0; pointer-events: none;
+  overflow: hidden;
+}
+.bg-grid {
+  position: absolute; inset: 0;
+  z-index: 2; pointer-events: none;
+  background-image:
+    radial-gradient(circle at 0 0, var(--line) 1px, transparent 1px),
+    radial-gradient(circle at 0 0, var(--line) 1px, transparent 1px);
+  background-size: 46px 46px, 46px 46px;
+  background-position: 0 0, 23px 23px;
+  opacity: .22;
+  animation: bg-grid-drift 34s linear infinite;
+}
+@keyframes bg-grid-drift { to { background-position: 46px 46px; } }
+
+.bg-streams {
+  position: absolute; left: 0; right: 0; top: 20%; z-index: 3;
+  pointer-events: none; overflow: hidden;
+}
+.bg-row {
+  display: flex;
+  width: 200%;
+  animation: stream 3.6s linear infinite;
+}
+.bg-row.second { animation-duration: 2.4s; animation-delay: -1.1s; }
+@keyframes stream { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.bg-strip { flex: 0 0 50%; }
+.bg-strip .item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 12px; border: 1px solid var(--line);
+  border-radius: 6px; font-size: 10.5px; letter-spacing: .05em;
+  text-transform: uppercase; color: var(--ink-2);
+  background: color-mix(in srgb, var(--sheet) 78%, transparent);
+  white-space: nowrap;
+}
+.bg-strip .item .name { color: var(--ink); font-weight: 600; font-size: 12px; }
+.bg-strip .item .sub {
+  font-size: 10px; color: var(--ink-3); letter-spacing: .03em;
+  text-transform: none; font-family: var(--mono);
+}
+.bg-strip .item .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft);
+  flex: none;
+}
+
+.bg-particles {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  z-index: 4; pointer-events: none; overflow: hidden;
+}
+.bg-particles .p {
+  position: absolute;
+  width: 7px; height: 7px; border-radius: 2px;
+  background: var(--sheet-2);
+  border: 1px solid var(--line-2);
+  animation: particle-rise 22s ease-in-out infinite;
+}
+.bg-particles .p:nth-child(2n) {
+  background: var(--accent-soft);
+  border-color: rgba(140, 230, 226, .35);
+}
+@keyframes particle-rise {
+  0%   { transform: translateY(115%); opacity: .12; }
+  18%  { opacity: .85; }
+  82%  { opacity: .85; }
+  100% { transform: translateY(-110px); opacity: .06; }
+}
+
 /* ---------- 3D animado ---------- */
 .three-d {
   position: absolute; inset: 0;
-  z-index: 0; pointer-events: none;
+  z-index: 1; pointer-events: none;
   overflow: hidden;
   opacity: .92;
 }
