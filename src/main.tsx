@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <Header tema={tema} onAlternar={alternar} />
-      <main>
+      <main id="conteudo-principal">
         <Hero />
         <Ecossistema />
         <Ciclo />
