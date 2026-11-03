@@ -20,12 +20,12 @@
   --ink-2: #a0b5c5;    /* = --arq-muted */
   --ink-3: #8fa0ad;    /* derivado do muted, para texto de 11-12px passar AA */
 
-  --accent: #8ce6e2;   /* = --arq-cyan */
-  --accent-ink: #071522;
-  --accent-soft: rgba(140, 230, 226, 0.13);
-  --accent-2: #8baeff; /* = --arq-blue, segunda cor de dado (séries de gráfico) */
+  --accent: #34ff95;   /* = --arq-neon green */
+  --accent-ink: #05080d;
+  --accent-soft: rgba(52, 255, 149, 0.22);
+  --accent-2: #22d3ee; /* = --arq-blue, segunda cor de dado (séries de gráfico) */
 
-  --ok: #7bd88f;
+  --ok: #39ff14;
   --warn: #e8a06a;
 
   --display: "Bahnschrift", "DIN Alternate", "DIN Condensed", "Roboto Condensed",
@@ -58,12 +58,12 @@ html[data-theme="light"] {
   --ink-3: #3a5868;
 
   /* mesma matiz do acento escuro, escurecida para contraste sobre claro */
-  --accent: #0d6f78;
+  --accent: #22d3ee;   /* = --arq-neon green */
   --accent-ink: #ffffff;
-  --accent-soft: rgba(13, 111, 120, 0.12);
-  --accent-2: #1a5ec8;  /* = --accent-claro do sistema dele */
+  --accent-soft: rgba(34, 211, 238, 0.12);
+  --accent-2: #10b981;  /* = --accent-claro do sistema dele */
 
-  --ok: #2f7d4f;
+  --ok: #39ff14;
   --warn: #a8592b;
 
   color-scheme: light;
