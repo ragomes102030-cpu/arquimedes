@@ -200,7 +200,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .dim span { white-space: nowrap; }
 
 /* ---------- hero ---------- */
-.hero { padding: 74px 0 0; }
+.hero { padding: 74px 0 0; position: relative; }
+.hero > .wrap { position: relative; z-index: 1; }
 .hero-grid {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.06fr);
   gap: 60px; align-items: start;
@@ -584,4 +585,52 @@ footer { border-top: 1px solid var(--line); padding: 40px 0 52px; background: va
   .step { border-right: 0; padding: 22px 0; border-bottom: 1px solid var(--line); }
   .step:last-child { border-bottom: 0; }
   .hdr-actions .btn-ghost { display: none; }
+}
+
+/* ---------- 3D animado ---------- */
+.three-d {
+  position: absolute; inset: 0;
+  z-index: 0; pointer-events: none;
+  overflow: hidden;
+  opacity: .92;
+}
+.three-d-stage {
+  position: absolute; inset: 0;
+  perspective: 900px;
+  transform-style: preserve-3d;
+  animation: orbit 26s ease-in-out infinite alternate;
+}
+.three-d-stage:hover { animation-duration: 14s; animation-direction: linear; }
+@keyframes orbit {
+  from { transform: rotateX(-8deg) rotateY(-28deg) scale(1); }
+  to   { transform: rotateX(-14deg) rotateY(28deg) scale(1.14); }
+}
+.turn { display: grid; grid-template-rows: repeat(3, 1fr); transform-style: preserve-3d; }
+.row { display: grid; grid-template-columns: repeat(3, 1fr); transform-style: preserve-3d; }
+.card {
+  position: relative; width: 140px; height: 140px;
+  border: 1px solid var(--line); background: var(--sheet);
+  box-shadow: 0 18px 40px -22px rgba(0,0,0,.55);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--ink-3); padding: 10px;
+}
+.card::before {
+  content: ''; position: absolute; inset: 2px; border: 1px solid var(--accent-soft);
+  border-radius: 6px; mix-blend-mode: screen;
+}
+.card .chip { position: absolute; inset: 18px; border: 1px solid var(--line-2); border-radius: 5px; background: var(--ground); }
+@media (max-width: 760px) { .card { width: 100px; height: 100px; font-size: 9px; padding: 6px; } }
+@keyframes shine {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+.shine {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(110deg, rgba(255,255,255,.10) 0%, transparent 45%, rgba(255,255,255,.06) 100%);
+  background-repeat: no-repeat; background-size: 200% 100%;
+  animation: shine 1.8s ease-in-out infinite alternate;
+}
+.shine.light {
+  background: linear-gradient(110deg, rgba(255,255,255,.14) 0%, transparent 45%, rgba(255,255,255,.08) 100%);
 }
