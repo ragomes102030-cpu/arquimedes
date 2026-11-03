@@ -57,6 +57,7 @@ export const Header: React.FC<{ tema: string; onAlternar: () => void; prefixo?: 
 
   return (
     <>
+      <a href="#conteudo-principal" className="skip-link">Pular para o conteúdo principal</a>
       <header className="hdr">
         <div className="wrap hdr-in">
           <a href={`${prefixo}#topo`} aria-label="Arquimedes — início">
