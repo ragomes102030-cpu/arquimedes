@@ -3,6 +3,8 @@ import { agentes, recursos, fluxo, perguntas, modelos, dominios } from '../data/
 import { Prancheta } from './Chrome'
 import { Marca, Alavanca } from './Marca'
 import { Glifo } from './Glifos'
+import { HeroBackground } from './HeroBackground'
+import { ThreeD } from './ThreeD'
 import { Contato } from './Contato'
 import { Ecossistema, Ciclo, DuvidasEcossistema } from './Ecossistema'
 import { baixar, online } from '../data/contato'
@@ -24,6 +26,8 @@ function useRevelar() {
 
 export const Hero: React.FC = () => (
   <section className="hero" id="topo">
+    <HeroBackground />
+    <ThreeD />
     <div className="wrap hero-grid">
       <div>
         <span className="kicker"><s />Planejamento e controle de obras</span>
